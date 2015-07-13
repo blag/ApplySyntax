@@ -24,6 +24,17 @@
 
     "default_syntaxes": [
         {
+            // The MXML rules come before the generic XML rules because they
+            // need syntax highlighting for the CDATA sections, but they do not
+            // have any characteristics that distinguish themselves from XML
+            // aside from their file extension
+            "syntax": "MXML",
+            "extensions": ["mxml"],
+            "rules": [
+                {"first_line": "^<\\?xml"}
+            ]
+        },
+        {
             // I put XML first because of files like *.tmLanguage. It is unlikely
             // that this rule will result in a false positive, meaning if it
             // matches, you probably want the XML syntax
